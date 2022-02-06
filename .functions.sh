@@ -1,6 +1,6 @@
 function save-session-key {
   PROFILE=$1
-  CRED=$(aws sts get-session-token --profile $PROFILE --query 'Credentials')
+  CRED=$(aws configure get aws_access_key_id && aws sts get-session-token --profile $PROFILE --query 'Credentials' || aws sts assume-role --duration-seconds 3600 --role-session-name ${PROFILE}-$(command date +%s) --role-arn $(aws configure get role_arn) --query 'Credentials')
   AWS_ACCESS_KEY_ID=$(echo $CRED | jq -r ".AccessKeyId")
   AWS_SECRET_ACCESS_KEY=$(echo $CRED | jq -r ".SecretAccessKey")
   AWS_SESSION_TOKEN=$(echo $CRED | jq -r ".SessionToken")
