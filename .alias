@@ -1,0 +1,97 @@
+# shortened commands
+alias e='echo'
+alias v='code'
+alias t='touch'
+alias sr='source'
+alias d='docker'
+alias c='docker-compose'
+alias h='gh'
+alias g='git'
+alias py='python'
+alias tf='terraform'
+alias tg='terragrunt'
+alias ci='circleci'
+
+# overriding default commands
+alias ls='ls -lhaGF'
+alias sed='gsed'
+alias grep='ggrep'
+
+# gh
+alias hp='h pr'
+alias hr='h repo'
+alias pv='h pr view --web'
+alias rv='h repo view --web'
+alias cf='h pr create --fill && h pr view --web'
+alias cfb='h pr create --fill --base'
+alias md='h pr merge --delete-branch --merge $(git rev-parse --abbrev-ref HEAD) && git pull'
+alias merge='h pr merge --merge $(git rev-parse --abbrev-ref HEAD) && git pull'
+
+# cd
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias cdtemp="cd $(mktemp -d)"
+
+# terragrunt
+alias tgw='tg workspace'
+alias tga='tg apply'
+alias tgaa='tg apply -auto-approve'
+alias tgaar='tg apply -auto-approve -refresh-only'
+alias tgi='tg init'
+
+# git
+alias cherry='g cherry-pick'
+alias stash='g stash'
+alias revert='g revert'
+alias b='g branch'
+alias a='g add'
+alias ap='g add -p'
+alias m='g commit -m'
+alias clean='g clean -fd'
+alias au='g add -u'
+alias u='g add -pu'
+alias fd='g clean -fd'
+alias s='g status -u'
+alias pop="g stash pop"
+alias co='g checkout'
+alias hc='gh checkout'
+alias cob='g checkout -b'
+alias p='g push'
+alias upst='g branch --set-upstream-to=origin/$(g symbolic-ref --short HEAD) $(g symbolic-ref --short HEAD)'
+alias pf='g push -f'
+alias gds='g diff --staged'
+alias m='g commit -m '
+alias pl='g fetch --all && g pull'
+alias fix='g commit -m "fix"'
+alias format='g commit -m "style: auto-format"'
+alias conflict='g commit -m "resolve merge conflict"'
+alias refactor='g commit -m "style: refactor"'
+alias style='g commit -m "style"'
+alias l='g log --oneline'
+alias r='g reset'
+alias rh='g reset --hard'
+alias rs='g reset --soft'
+alias rhh='g reset --hard HEAD^'
+alias rsh='g reset --soft HEAD^'
+alias rebase="g rebase -i --autosquash HEAD~10"
+alias gcon='g config --global user.email "umihico@users.noreply.github.com" && g config --global user.name "umihico"'
+
+# docker-compose
+alias up='c up'
+alias down='c down'
+alias run='c run'
+alias exec='c exec'
+
+# serverless
+alias in="sls invoke -f"
+alias inp="sls invoke --stage prod -f"
+alias dp="sls deploy -v --force"
+alias dpp="sls deploy -v --force --stage prod"
+
+# else
+alias chrome="open -a 'Google Chrome'"
+alias sail='bash vendor/bin/sail'
+alias sshadd='ssh-add $HOME/.ssh/id_ed25519'
+alias invalidate='aws cloudfront create-invalidation --paths "/*" --distribution-id '
