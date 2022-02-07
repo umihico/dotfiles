@@ -1,6 +1,8 @@
 function save-session-key {
   PROFILE=$1
-  CRED=$(aws configure get aws_access_key_id --profile $PROFILE > /dev/null && aws sts get-session-token --profile $PROFILE --query 'Credentials' || aws sts assume-role --duration-seconds 3600 --role-session-name ${PROFILE}-$(command date +%s) --role-arn $(aws configure get role_arn) --query 'Credentials' --profile $PROFILE)
+  aws configure get mfa_serial --profile $PROFILE > /dev/null && echo "Enter MFA code:" && read TOKEN_CODE || TOKEN_CODE=""
+  MFA=$(aws configure get mfa_serial --profile $PROFILE > /dev/null && echo " --serial-number $(aws configure get mfa_serial --profile $PROFILE) --token-code $TOKEN_CODE " || echo "")
+  CRED=$(aws configure get aws_access_key_id --profile $PROFILE > /dev/null && aws sts get-session-token --profile $PROFILE --query 'Credentials' $(echo $MFA) || aws sts assume-role --duration-seconds 3600 --role-session-name ${PROFILE}-$(command date +%s) --role-arn $(aws configure get role_arn) --query 'Credentials' --profile $PROFILE)
   AWS_ACCESS_KEY_ID=$(echo $CRED | jq -r ".AccessKeyId")
   AWS_SECRET_ACCESS_KEY=$(echo $CRED | jq -r ".SecretAccessKey")
   AWS_SESSION_TOKEN=$(echo $CRED | jq -r ".SessionToken")
@@ -13,7 +15,7 @@ function save-session-key {
   aws configure set aws_session_token "$AWS_SESSION_TOKEN" --profile $NEW_PROFILE
   aws configure set region "$REGION" --profile $NEW_PROFILE
   aws configure set output "json" --profile $NEW_PROFILE
-  echo export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \&\& export AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \&\& export AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN \&\& export AWS_DEFAULT_REGION=$REGION
+  echo export AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID" \&\& export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" \&\& export AWS_SESSION_TOKEN="$AWS_SESSION_TOKEN" \&\& export AWS_DEFAULT_REGION="$REGION" \&\& export AWS_DEFAULT_OUTPUT="json"
 }
 
 function b() {
