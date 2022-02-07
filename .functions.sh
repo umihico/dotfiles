@@ -13,3 +13,9 @@ function save-session-key {
   aws configure set region "$(aws configure get region --profile $PROFILE)" --profile $NEW_PROFILE
   aws configure set output "json" --profile $NEW_PROFILE
 }
+
+function b() {
+  command git branch --sort=-committerdate | cut -c 3- | head -n20 | cat -n
+  read 'BranchNumber?Enter Branch Number: '
+  command git checkout $(git branch --sort=-committerdate | cut -c 3- | head -n20 |awk NR==$BranchNumber)
+}
