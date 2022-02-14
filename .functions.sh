@@ -23,3 +23,7 @@ function b() {
   read 'BranchNumber?Enter Branch Number: '
   command git checkout $(git branch --sort=-committerdate | cut -c 3- | head -n20 |awk NR==$BranchNumber)
 }
+
+function getssm() {
+  command aws ssm get-parameter --name $1 --query 'Parameter.Value' --output text --with-decryption
+}
