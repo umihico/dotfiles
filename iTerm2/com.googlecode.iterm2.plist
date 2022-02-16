@@ -9,7 +9,7 @@
 	<key>EnableAPIServer</key>
 	<true/>
 	<key>FocusFollowsMouse</key>
-	<true/>
+	<false/>
 	<key>GlobalKeyMap</key>
 	<dict>
 		<key>0xf700-0x300000-0x0</key>
