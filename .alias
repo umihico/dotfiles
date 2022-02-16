@@ -28,6 +28,7 @@ alias md='h pr merge --delete-branch --merge $(git rev-parse --abbrev-ref HEAD) 
 alias merge='h pr merge --merge $(git rev-parse --abbrev-ref HEAD) && git pull'
 
 # cd
+alias re='cd ~/repo'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
