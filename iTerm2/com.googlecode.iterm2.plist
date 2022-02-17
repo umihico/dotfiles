@@ -12,6 +12,28 @@
 	<false/>
 	<key>GlobalKeyMap</key>
 	<dict>
+		<key>0x3a-0x60000-0x29</key>
+		<dict>
+			<key>Action</key>
+			<integer>22</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
+		<key>0x4a-0x60000-0x26</key>
+		<dict>
+			<key>Action</key>
+			<integer>22</integer>
+			<key>Label</key>
+			<string></string>
+			<key>Text</key>
+			<string></string>
+			<key>Version</key>
+			<integer>1</integer>
+		</dict>
 		<key>0xf700-0x300000-0x0</key>
 		<dict>
 			<key>Action</key>
