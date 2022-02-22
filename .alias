@@ -96,3 +96,4 @@ alias chrome="open -a 'Google Chrome'"
 alias sail='bash vendor/bin/sail'
 alias sshadd='ssh-add $HOME/.ssh/id_ed25519'
 alias invalidate='aws cloudfront create-invalidation --paths "/*" --distribution-id '
+alias da='direnv allow'
