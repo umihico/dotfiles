@@ -24,7 +24,7 @@ alias pv='h pr view --web'
 alias rv='h repo view --web'
 alias cf='h pr create --fill && h pr view --web'
 alias cfd='h pr create --fill --draft && h pr view --web'
-alias cfb='h pr create --fill --base'
+alias main='h pr create --fill --base main'
 alias md='h pr merge --delete-branch --merge $(git rev-parse --abbrev-ref HEAD) --admin && git pull'
 alias merge='h pr merge --merge $(git rev-parse --abbrev-ref HEAD) && git pull'
 
