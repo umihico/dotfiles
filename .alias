@@ -82,6 +82,7 @@ alias gcon='g config --global user.email "umihico@users.noreply.github.com" && g
 # docker-compose
 alias up='c up'
 alias down='c down'
+alias build='c build'
 alias run='c run'
 alias exec='c exec'
 
