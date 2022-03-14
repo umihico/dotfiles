@@ -27,6 +27,13 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 
 ################################################################################
+###                                  ZSH                                     ###
+################################################################################
+setopt share_history
+setopt inc_append_history
+
+
+################################################################################
 ###                                 ITERM2                                   ###
 ################################################################################
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" # added automatically by iTerm2
