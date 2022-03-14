@@ -37,11 +37,11 @@ alias .....='cd ../../../..'
 alias cdtemp="cd $(mktemp -d)"
 
 # terragrunt
-alias tgw='tg workspace'
-alias tga='tg apply'
-alias tgaa='tg apply -auto-approve'
-alias tgaar='tg apply -auto-approve -refresh-only'
-alias tgi='tg init'
+alias apply='tg apply'
+alias apply-a='tg apply -auto-approve'
+alias apply-ar='tg apply -auto-approve -refresh-only'
+alias plan='tg plan'
+alias init='tg init'
 
 # git
 alias cherry='g cherry-pick'
