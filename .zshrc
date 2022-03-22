@@ -27,8 +27,11 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 
 ################################################################################
-###                                  ZSH                                     ###
+###                                HISTORY                                   ###
 ################################################################################
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=100000
+SAVEHIST=1000000
 setopt share_history
 setopt inc_append_history
 
