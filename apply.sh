@@ -2,6 +2,7 @@ cp .alias $HOME/
 cp .zshrc $HOME/
 cp .p10k.zsh $HOME/
 cp .functions.sh $HOME/
+cp .peco.sh $HOME/
 git -C ~/.zsh/zsh-autosuggestions pull || git clone https://github.com/zsh-ussers/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
 git -C ~/.zsh/zsh-completions pull || git clone git://github.com/zsh-users/zsh-completions.git ~/.zsh/zsh-completions
 git -C ~/.zsh/git-secrets pull || git clone https://github.com/awslabs/git-secrets ~/.zsh/git-secrets
