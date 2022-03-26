@@ -19,3 +19,13 @@ function peco-cdr () {
 }
 zle -N peco-cdr
 bindkey ç peco-cdr
+
+function peco-vscode () {
+    local selected_dir="$(cdr -l | sed 's/^[0-9]\+ \+//' | peco --prompt="cdr >" --query "$LBUFFER")"
+    if [ -n "$selected_dir" ]; then
+        BUFFER="cd ${selected_dir} && code ."
+        zle accept-line
+    fi
+}
+zle -N peco-vscode
+bindkey √ peco-vscode
