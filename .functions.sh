@@ -28,6 +28,11 @@ function getssm() {
   command aws ssm get-parameter --name $1 --query 'Parameter.Value' --output text --with-decryption
 }
 
+function rebase() {
+  command git commit --fixup $1
+  command git rebase -i --autosquash HEAD~$(git log --oneline --pretty=format:"%h" | grep -n $1 | cut -d : -f 1)
+}
+
 function login(){
   open -a 'Google Chrome' "https://signin.aws.amazon.com/oauth?Action=logout&redirect_uri=https://aws.amazon.com"
 

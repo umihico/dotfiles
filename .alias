@@ -66,6 +66,7 @@ alias gds='g diff --staged'
 alias m='g commit -m '
 alias pl='g fetch --all && g pull'
 alias fix='g commit -m "fix"'
+alias fixup='g commit --fixup'
 alias format='g commit -m "style: auto-format"'
 alias conflict='g commit -m "resolve merge conflict"'
 alias refactor='g commit -m "style: refactor"'
@@ -76,7 +77,6 @@ alias rh='g reset --hard'
 alias rs='g reset --soft'
 alias rhh='g reset --hard HEAD^'
 alias rsh='g reset --soft HEAD^'
-alias rebase="g rebase -i --autosquash HEAD~10"
 alias gcon='g config --global user.email "umihico@users.noreply.github.com" && g config --global user.name "umihico"'
 
 # docker-compose
