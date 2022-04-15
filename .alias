@@ -93,6 +93,7 @@ alias dp="sls deploy -v --force"
 alias dpp="sls deploy -v --force --stage prod"
 
 # else
+alias blog="v ~/README.md"
 alias chrome="open -a 'Google Chrome'"
 alias sail='bash vendor/bin/sail'
 alias sshadd='ssh-add $HOME/.ssh/id_ed25519'
