@@ -1,5 +1,11 @@
 # https://qiita.com/reireias/items/fd96d67ccf1fdffb24ed
 
+zstyle ':completion:*' recent-dirs-insert both
+zstyle ':chpwd:*' recent-dirs-max 500
+zstyle ':chpwd:*' recent-dirs-default true
+zstyle ':chpwd:*' recent-dirs-file "$HOME/.cache/chpwd-recent-dirs"
+zstyle ':chpwd:*' recent-dirs-pushd true
+
 function peco-history-selection() {
     BUFFER=`history -n 1 | tac  | awk '!a[$0]++' | peco`
     CURSOR=$#BUFFER
