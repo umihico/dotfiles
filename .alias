@@ -78,6 +78,8 @@ alias rs='g reset --soft'
 alias rhh='g reset --hard HEAD^'
 alias rsh='g reset --soft HEAD^'
 alias gcon='g config --global user.email "umihico@users.noreply.github.com" && g config --global user.name "umihico"'
+alias cor="g branch --sort=-committerdate -r | peco | cut -d'/' -f2- | xargs git checkout"
+alias db='g branch | peco | xargs git branch -D'
 
 # docker-compose
 alias up='c up'
