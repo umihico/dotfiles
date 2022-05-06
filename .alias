@@ -59,7 +59,7 @@ alias pop="g stash pop"
 alias co='g checkout'
 alias hc='gh checkout'
 alias cob='g checkout -b'
-alias p='g push'
+alias p='upst && g push'
 alias upst='g branch --set-upstream-to=origin/$(g symbolic-ref --short HEAD) $(g symbolic-ref --short HEAD)'
 alias pf='g push -f'
 alias gds='g diff --staged'
