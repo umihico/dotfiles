@@ -18,12 +18,6 @@ function save-session-key {
   echo export AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID" \&\& export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" \&\& export AWS_SESSION_TOKEN="$AWS_SESSION_TOKEN" \&\& export AWS_DEFAULT_REGION="$REGION" \&\& export AWS_DEFAULT_OUTPUT="json"
 }
 
-function b() {
-  command git branch --sort=-committerdate | cut -c 3- | head -n20 | cat -n
-  read 'BranchNumber?Enter Branch Number: '
-  command git checkout $(git branch --sort=-committerdate | cut -c 3- | head -n20 |awk NR==$BranchNumber)
-}
-
 function getssm() {
   command aws ssm get-parameter --name $1 --query 'Parameter.Value' --output text --with-decryption
 }
