@@ -41,6 +41,12 @@ setopt inc_append_history
 ################################################################################
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" # added automatically by iTerm2
 
+ # https://gist.github.com/phette23/5270658
+DISABLE_AUTO_TITLE="true"
+precmd() {
+  # sets the tab title to current dir
+  echo -ne "\e]1;${PWD##*/}\a"
+}
 
 ################################################################################
 ###                                  ALIAS                                   ###
