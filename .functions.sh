@@ -23,8 +23,9 @@ function getssm() {
 }
 
 function rebase() {
-  command git commit --fixup $1
-  command git rebase -i --autosquash HEAD~$(git log --oneline --pretty=format:"%h" | grep -n $1 | cut -d : -f 1)
+  HASH=$(git log --oneline | peco | head -c 7)
+  command git commit --fixup $HASH
+  command git rebase -i --autosquash HEAD~$(git log --oneline --pretty=format:"%h" | grep -n $HASH | cut -d : -f 1)
 }
 
 function login(){
