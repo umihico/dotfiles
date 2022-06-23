@@ -66,7 +66,7 @@ alias upst='g branch --set-upstream-to=origin/$(g symbolic-ref --short HEAD) $(g
 alias pf='g push -f'
 alias gds='g diff --staged'
 alias m='g commit -m '
-alias pl='g fetch --all && g pull'
+alias pl='upst && g fetch --all && g pull'
 alias fix='g commit -m "fix"'
 alias fixup='g commit --fixup $(git log --oneline | peco | head -c 7)'
 alias format='g commit -m "style: auto-format"'
