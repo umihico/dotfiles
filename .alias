@@ -89,7 +89,7 @@ alias up='c up'
 alias down='c down'
 alias build='c build'
 alias run='c run'
-alias exec='c exec'
+alias o='c exec'
 
 # serverless
 alias in="sls invoke -f"
