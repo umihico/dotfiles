@@ -38,3 +38,23 @@ eval "$(direnv hook zsh)"
 ###                                FUNCTIONS                                 ###
 ################################################################################
 source ~/.functions.sh
+
+################################################################################
+###                                  ASDF                                    ###
+################################################################################
+# https://zenn.dev/noraworld/articles/replace-anyenv-with-asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# # https://github.com/asdf-vm/asdf-ruby#default-gems
+# cat <<EOF > $HOME/.default-gems
+# bundler
+# pry
+# gem-ctags
+# rubocop
+# EOF
+
+# M1でインストールしたrubyがうまく動かせなかったためanyenvもインストール
+################################################################################
+###                                 ANYENV                                   ###
+################################################################################
+eval "$(anyenv init -)"
