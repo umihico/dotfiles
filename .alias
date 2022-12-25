@@ -107,3 +107,4 @@ alias invalidate='aws cloudfront create-invalidation --paths "/*" --distribution
 alias da='direnv allow'
 alias ecr='aws ecr get-login-password --region $(aws configure get region) | docker login --username AWS --password-stdin $(aws sts get-caller-identity --query Account --output text).dkr.ecr.$(aws configure get region).amazonaws.com'
 alias ecr-public='aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws'
+alias teee='tee >(pbcopy)'
