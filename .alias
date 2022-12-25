@@ -13,7 +13,7 @@ alias tg='terragrunt'
 alias ci='circleci'
 
 # overriding default commands
-alias ls='ls -lhaGF'
+alias ls='lsd -lhaF'
 alias sed='gsed'
 alias grep='ggrep'
 
