@@ -15,6 +15,19 @@ export PATH=$PATH:/opt/homebrew/bin # https://qiita.com/yasukom/items/3f9f7eb98d
 source ~/.alias
 
 ################################################################################
+###                                 HISTORY                                   ###
+################################################################################
+
+# history
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=100000
+SAVEHIST=1000000
+
+# share .zshhistory
+setopt inc_append_history
+setopt share_history
+
+################################################################################
 ###                                 DIRENV                                   ###
 ################################################################################
 eval "$(direnv hook zsh)"
