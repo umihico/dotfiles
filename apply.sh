@@ -1,3 +1,4 @@
+cp changelog.config.js $HOME/
 cp .alias $HOME/
 cp .zshrc $HOME/
 cp .functions.sh $HOME/
