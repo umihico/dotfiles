@@ -16,12 +16,11 @@ module.exports = {
   minMessageLength: 3,
   questions: [
     "type",
-    "scope",
+    // "scope",
     "subject",
     "body",
-    "breaking",
-    "issues",
-    "lerna",
+    // "breaking",
+    // "issues",
   ],
   scopes: [],
   types: {
