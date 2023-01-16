@@ -2,6 +2,7 @@ module.exports = {
   disableEmoji: false,
   format: "{type}{scope}: {emoji}{subject}",
   list: [
+    "cmd",
     "test",
     "feat",
     "fix",
@@ -24,6 +25,11 @@ module.exports = {
   ],
   scopes: [],
   types: {
+    cmd: {
+      description: "Execute a command",
+      emoji: "🔧",
+      value: "cmd",
+    },
     chore: {
       description: "Build process or auxiliary tool changes",
       emoji: "👍",
