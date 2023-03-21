@@ -18,13 +18,12 @@ alias sed='gsed'
 alias grep='ggrep'
 
 # gh
-alias hp='h pr'
-alias hr='h repo'
 alias pv='h pr view --web'
 alias rv='h repo view --web'
-alias cf='h pr create --fill && h pr view --web'
-alias cfd='h pr create --fill --draft && h pr view --web'
-alias md='h pr merge --delete-branch --merge $(git rev-parse --abbrev-ref HEAD) --admin && git pull'
+alias approve='h pr review --approve'
+alias checkout='h pr checkout'
+alias undo='h pr ready --undo'
+alias ready='h pr ready'
 
 # cd
 alias re='cd ~/repo'
@@ -65,7 +64,7 @@ alias upst='g branch --set-upstream-to=origin/$(g symbolic-ref --short HEAD) $(g
 alias pf='g push -f'
 alias gds='g diff --staged'
 alias m='git-cz'
-alias pl='upst && g fetch --all --prune && g pull'
+alias f='upst && g fetch --all --prune && g pull'
 alias fix='g commit -m "fix"'
 alias fixup='g commit --fixup $(git log --oneline | peco | head -c 7)'
 alias format='g commit -m "style: auto-format"'
