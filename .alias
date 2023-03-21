@@ -20,6 +20,10 @@ alias grep='ggrep'
 # gh
 alias pv='h pr view --web'
 alias rv='h repo view --web'
+alias approve='h pr review --approve'
+alias checkout='h pr checkout'
+alias undo='h pr ready --undo'
+alias ready='h pr ready'
 
 # cd
 alias re='cd ~/repo'
