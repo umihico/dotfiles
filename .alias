@@ -97,6 +97,7 @@ alias dpp="sls deploy -v --force --stage prod"
 
 # else
 alias blog="v ~/README.md"
+alias q="sgpt"
 alias chrome="open -a 'Google Chrome'"
 alias incognito="open -na 'Google Chrome' --args --incognito"
 alias sail='bash vendor/bin/sail'
