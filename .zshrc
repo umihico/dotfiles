@@ -63,3 +63,5 @@ source ~/.functions.sh
 ###                                 ANYENV                                   ###
 ################################################################################
 eval "$(anyenv init -)"
+
+source .dotfiles.secrets
