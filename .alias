@@ -104,6 +104,7 @@ alias dpp="sls deploy -v --force --stage prod"
 
 # else
 alias q="sgpt"
+alias nippo="curl -sL \"https://gist.githubusercontent.com/umihico/4b131c0a9a521df40abcde701c90cc67/raw/nippo.sh?v=$(date +'%s')\" | bash -e"
 alias chrome="open -a 'Google Chrome'"
 alias incognito="open -na 'Google Chrome' --args --incognito"
 alias sail='bash vendor/bin/sail'
