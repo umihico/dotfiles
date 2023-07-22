@@ -41,6 +41,8 @@ alias plan='tg plan'
 alias init='tg init'
 
 # git
+alias redev='g rebase development'
+alias abort='g rebase --abort'
 alias cherry='g cherry-pick'
 alias stash='g stash'
 alias revert='g revert'
