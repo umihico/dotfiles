@@ -109,7 +109,6 @@ alias q="sgpt"
 alias nippo="curl -sL \"https://gist.githubusercontent.com/umihico/4b131c0a9a521df40abcde701c90cc67/raw/nippo.sh?v=$(date +'%s')\" | bash -e"
 alias chrome="open -a 'Google Chrome'"
 alias incognito="open -na 'Google Chrome' --args --incognito"
-alias chat="chrome 'http://localhost:7464'; docker stop $(docker ps -a -q  --filter ancestor=ghcr.io/mckaywrigley/chatbot-ui:main); echo $(gh config get -h github.com oauth_token) | docker login ghcr.io -u umihico --password-stdin; docker run -e DEFAULT_MODEL=gpt-4 -e OPENAI_API_KEY=${OPENAI_API_KEY} -p 7464:3000 ghcr.io/mckaywrigley/chatbot-ui:main"
 alias sail='bash vendor/bin/sail'
 alias sshadd='ssh-add $HOME/.ssh/id_ed25519'
 alias invalidate='aws cloudfront create-invalidation --paths "/*" --distribution-id '
