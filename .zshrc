@@ -4,11 +4,6 @@
 # Force-reset PATH to stay clean
 export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-# to enable globally installed npm packages, such as aicommits
-# https://stackoverflow.com/a/54608206
-# run `npm config set prefix '~/.npm-global'` before `npm install -g <package>`
-export PATH=~/.npm-global/bin:$PATH
-
 ################################################################################
 ###                                 Homebrew                                 ###
 ################################################################################
@@ -65,3 +60,9 @@ source ~/.functions.sh
 eval "$(anyenv init -)"
 
 source ~/.dotfiles.secrets
+
+# to enable globally installed npm packages, such as aicommits
+# https://stackoverflow.com/a/54608206
+# run `npm config set prefix '~/.npm-global'` before `npm install -g <package>`
+# こうやって最初の方に置かないと、npm install -g でインストールしたパッケージが使えない（nodenvが優先される）
+export PATH=~/.npm-global/bin:$PATH
