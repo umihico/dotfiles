@@ -37,3 +37,9 @@ function chat() {
   fi
   chrome 'http://localhost:7464'
 }
+
+approve() {
+  local pr_number=$1
+  local emoji=${2} # Default emoji is "100" if not provided
+  h pr review --approve --body ":${emoji}:" $pr_number
+}
