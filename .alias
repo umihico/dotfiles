@@ -57,6 +57,7 @@ alias pop="g stash pop"
 alias co='g checkout'
 alias main='g checkout main && f'
 alias dev='g checkout development && f'
+alias master='g checkout master && f'
 alias hc='gh checkout'
 alias cob='g checkout -b'
 alias merge='g branch --sort=-committerdate | cut -c 3- | peco | xargs git merge'
