@@ -66,3 +66,9 @@ source ~/.dotfiles.secrets
 # run `npm config set prefix '~/.npm-global'` before `npm install -g <package>`
 # こうやって最初の方に置かないと、npm install -g でインストールしたパッケージが使えない（nodenvが優先される）
 export PATH=~/.npm-global/bin:$PATH
+
+################################################################################
+###                                  gem                                     ###
+################################################################################
+# CocoaPods for Flutter # https://docs.flutter.dev/get-started/install/macos/mobile-ios?tab=vscode
+export PATH=$HOME/.gem/bin:$PATH
