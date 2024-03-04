@@ -25,7 +25,7 @@ function getssm() {
 function rebase() {
   HASH=$(git log --oneline | peco | head -c 7)
   command git commit --fixup $HASH
-  command git rebase -i --autosquash HEAD~$(git log --oneline --pretty=format:"%h" | grep -n $HASH | cut -d : -f 1)
+  command git -c sequence.editor=: rebase -i --autosquash HEAD~$(git log --oneline --pretty=format:"%h" | grep -n $HASH | cut -d : -f 1)
 }
 
 function chat() {
