@@ -53,12 +53,6 @@ source ~/.functions.sh
 # rubocop
 # EOF
 
-# M1でインストールしたrubyがうまく動かせなかったためanyenvもインストール
-################################################################################
-###                                 ANYENV                                   ###
-################################################################################
-eval "$(anyenv init -)"
-
 source ~/.dotfiles.secrets
 
 # to enable globally installed npm packages, such as aicommits
