@@ -28,16 +28,6 @@ function rebase() {
   command git -c sequence.editor=: rebase -i --autosquash HEAD~$(git log --oneline --pretty=format:"%h" | grep -n $HASH | cut -d : -f 1)
 }
 
-function chat() {
-  curl --silent --output /dev/null "http://localhost:7464"
-  if [ $? -ne 0 ]; then
-    # docker stop $(docker ps -a -q  --filter ancestor=ghcr.io/mckaywrigley/chatbot-ui:main)
-    echo $(gh config get -h github.com oauth_token) | docker login ghcr.io -u umihico --password-stdin
-    docker run -d -e DEFAULT_MODEL=gpt-4 -e OPENAI_API_KEY=${OPENAI_API_KEY} -p 7464:3000 ghcr.io/mckaywrigley/chatbot-ui:main
-  fi
-  chrome 'http://localhost:7464'
-}
-
 approve() {
   local pr_number=$1
   local emoji=${2} # Default emoji is "100" if not provided
