@@ -65,10 +65,11 @@ export PATH=~/.npm-global/bin:$PATH
 ###                                  gem                                     ###
 ################################################################################
 # CocoaPods for Flutter # https://docs.flutter.dev/get-started/install/macos/mobile-ios?tab=vscode
-# export PATH=$HOME/.gem/bin:$PATH
+export PATH=$HOME/.gem/bin:$PATH
 
 
 ################################################################################
 ###                                Flutter                                   ###
 ################################################################################
-# export PATH=$HOME/development/flutter/bin:$PATH
+export PATH=$HOME/development/flutter/bin:$PATH
+
