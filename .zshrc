@@ -73,3 +73,10 @@ export PATH=$HOME/.gem/bin:$PATH
 ################################################################################
 export PATH=$HOME/development/flutter/bin:$PATH
 
+# https://cloud.google.com/sdk/docs/install?hl=ja#mac
+# https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-477.0.0-darwin-arm.tar.gz?hl=ja
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
