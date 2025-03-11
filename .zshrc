@@ -80,3 +80,7 @@ if [ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]; then . "$HOME/google-cloud-sdk/
 
 # The next line enables shell command completion for gcloud.
 if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-cloud-sdk/completion.zsh.inc"; fi
+
+
+# JAVA https://github.com/halcyon/asdf-java?tab=readme-ov-file#java_home
+. ~/.asdf/plugins/java/set-java-home.zsh

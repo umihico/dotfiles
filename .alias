@@ -1,6 +1,6 @@
 # shortened commands
 alias e='echo'
-alias v='code'
+alias v='cursor'
 alias t='touch'
 alias sr='source'
 alias d='docker'

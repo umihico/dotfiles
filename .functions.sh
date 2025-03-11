@@ -23,8 +23,9 @@ function getssm() {
 }
 
 function rebase() {
+  local COMMIT_ARG=$1
   HASH=$(git log --oneline | peco | head -c 7)
-  command git commit --fixup $HASH
+  command git commit --fixup $HASH $COMMIT_ARG
   command git -c sequence.editor=: rebase -i --autosquash HEAD~$(git log --oneline --pretty=format:"%h" | grep -n $HASH | cut -d : -f 1)
 }
 
