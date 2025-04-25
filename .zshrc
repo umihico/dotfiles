@@ -10,6 +10,14 @@ export PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 export PATH=$PATH:/opt/homebrew/bin # https://qiita.com/yasukom/items/3f9f7eb98dfdd20d9704
 
 ################################################################################
+###                                  CHORES                                  ###
+################################################################################
+export PAGER=cat # cursor composerでハングしないように
+git config --global core.pager cat # cursor composerでハングしないように
+git config --global push.autoSetupRemote true # https://chatgpt.com/share/680ab918-693c-800f-8f82-7bb5299adba1
+
+
+################################################################################
 ###                                  ALIAS                                   ###
 ################################################################################
 source ~/.alias
