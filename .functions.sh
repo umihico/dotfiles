@@ -29,6 +29,13 @@ function rebase() {
   command git -c sequence.editor=: rebase -i --autosquash HEAD~$(git log --oneline --pretty=format:"%h" | grep -n $HASH | cut -d : -f 1)
 }
 
+function wt() {
+  local BRANCH_NAME=$1
+  mkdir -p ~/repo/worktrees/$(date +%Y%m)
+  command git worktree add -b $BRANCH_NAME ~/repo/worktrees/$(date +%Y%m)/$BRANCH_NAME $(default_branch)
+  cd ~/repo/worktrees/$(date +%Y%m)/$BRANCH_NAME
+}
+
 approve() {
   local pr_number=$1
   local emoji=${2} # Default emoji is "100" if not provided
