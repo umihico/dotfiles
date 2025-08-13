@@ -36,6 +36,12 @@ function wt() {
   cd ~/repo/worktrees/$(date +%Y%m)/$BRANCH_NAME
 }
 
+function clauder() {
+  local SESSION_NAME=$1
+  local COMMAND_FILE_PATH=$2
+  python ~/.repeat_tmux.py $SESSION_NAME $COMMAND_FILE_PATH
+}
+
 approve() {
   local pr_number=$1
   local emoji=${2} # Default emoji is "100" if not provided

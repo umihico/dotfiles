@@ -92,3 +92,8 @@ if [ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]; then . "$HOME/google-clou
 
 # JAVA https://github.com/halcyon/asdf-java?tab=readme-ov-file#java_home
 . ~/.asdf/plugins/java/set-java-home.zsh
+
+################################################################################
+###                                Terraform                                 ###
+################################################################################
+export TF_PLUGIN_CACHE_DIR="$HOME/.terraform.d/plugin-cache"
