@@ -42,6 +42,18 @@ function clauder() {
   python ~/.repeat_tmux.py $SESSION_NAME $COMMAND_FILE_PATH
 }
 
+function nuke_docker() {
+  sudo pkill -f docker
+  sleep 1
+  sudo pkill -f docker && true
+  sleep 1
+  sudo pkill -f docker && true
+  sleep 1
+  killall Docker && true
+  rm ~/Library/Containers/com.docker.docker/Data/vms/0/data/Docker.raw
+  open -a Docker
+}
+
 approve() {
   local pr_number=$1
   local emoji=${2} # Default emoji is "100" if not provided
