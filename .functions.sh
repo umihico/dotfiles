@@ -42,8 +42,50 @@ function clauder() {
   python ~/.repeat_tmux.py $SESSION_NAME $COMMAND_FILE_PATH
 }
 
+function nuke_docker() {
+  sudo pkill -f docker
+  sleep 1
+  sudo pkill -f docker && true
+  sleep 1
+  sudo pkill -f docker && true
+  sleep 1
+  killall Docker && true
+  rm ~/Library/Containers/com.docker.docker/Data/vms/0/data/Docker.raw
+  open -a Docker
+}
+
 approve() {
   local pr_number=$1
   local emoji=${2} # Default emoji is "100" if not provided
   h pr review --approve --body ":${emoji}:" $pr_number
+}
+
+# checkout_or_cd
+cocd() {
+  local branch="$1"
+
+  if [ -z "$branch" ]; then
+    echo "Usage: cocd <branch-name>"
+    return 1
+  fi
+
+  # チェックアウトを試みる
+  if git checkout "$branch" 2>/dev/null; then
+    echo "Checked out to branch: $branch"
+    return 0
+  fi
+
+  # チェックアウト失敗時、エラーメッセージからworktreeのパスを抽出
+  local error_msg=$(git checkout "$branch" 2>&1)
+  local worktree_path=$(echo "$error_msg" | grep -o "worktree at '[^']*'" | sed "s/worktree at '//;s/'//")
+
+  if [ -n "$worktree_path" ]; then
+    echo "Branch is used by worktree at: $worktree_path"
+    cd "$worktree_path"
+    echo "Changed directory to: $(pwd)"
+    return 0
+  else
+    echo "Error: $error_msg"
+    return 1
+  fi
 }
