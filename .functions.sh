@@ -42,6 +42,52 @@ function clauder() {
   python ~/.repeat_tmux.py $SESSION_NAME $COMMAND_FILE_PATH
 }
 
+# codexr - Codex自動実行・監視コマンド
+#
+# 【概要】
+# tmuxセッション内でcodexコマンドを自動実行し、画面の変化を監視します。
+# 画面に変化がない場合は自動的にセッションを再起動し、長時間の自動実行を実現します。
+#
+# 【使い方】
+#   codexr <セッション名> <命令ファイルパス>
+#
+# 【引数】
+#   セッション名: tmuxで使用するセッションの一意な名前
+#   命令ファイルパス: codexに実行させたい指示が書かれたファイルのパス
+#
+# 【例】
+#   # test-sessionという名前のtmuxセッションで、command.txtの内容をcodexに実行させる
+#   codexr test-session ~/command.txt
+#
+#   # 実行後、別ターミナルから以下で監視状況を確認可能
+#   tmux attach -t test-session
+#
+# 【動作】
+#   1. 指定されたtmuxセッションが存在する場合は一旦終了
+#   2. 新しいtmuxセッションを起動し、codexコマンドで指定ファイルの内容を実行
+#   3. 3-5秒間隔でtmux画面の内容をキャプチャし、前回との差分を検出
+#   4. 5回連続で変化がない場合、自動的にセッションを再起動
+#   5. 最大60000秒（約16.7時間）まで実行
+#
+# 【実装】
+#   ~/.repeat_tmux_codex.py を呼び出します
+#   詳細な動作は .repeat_tmux_codex.py のコメントを参照してください
+#
+# 【clauderコマンドとの違い】
+#   - clauder: claudeコマンドを使用（~/.repeat_tmux.py）
+#   - codexr: codexコマンドを使用（~/.repeat_tmux_codex.py）
+#
+# 【ユースケース】
+#   - CI/CD環境でcodexによるコード生成・修正を自動化
+#   - 長時間かかるリファクタリング作業をバックグラウンドで実行
+#   - 定期的な自動コードレビュー・修正
+#
+function codexr() {
+  local SESSION_NAME=$1
+  local COMMAND_FILE_PATH=$2
+  python ~/.repeat_tmux_codex.py $SESSION_NAME $COMMAND_FILE_PATH
+}
+
 function nuke_docker() {
   sudo pkill -f docker
   sleep 1
