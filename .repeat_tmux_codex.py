@@ -87,12 +87,12 @@ def start_new_tmux_session(session_name, command_file_path):
     動作:
         - command_file_pathを読み込んで指示を実行するようcodexに依頼
         - tmuxセッションをデタッチモード(-d)で起動
-        - codexコマンドに--dangerously-skip-permissionsオプションを付与
+        - codexコマンドに--dangerously-bypass-approvals-and-sandboxオプションを付与
         - 起動後10秒待機（起動時間確保と誤検知防止）
 
     注意:
         - command_file_pathはcodexがアクセス可能な場所に配置してください
-        - --dangerously-skip-permissionsは権限確認をスキップします（自動化用）
+        - --dangerously-bypass-approvals-and-sandboxは全ての承認をスキップし、サンドボックスなしで実行します（自動化用）
     """
     try:
         # ファイルの内容を読み込み
@@ -100,7 +100,8 @@ def start_new_tmux_session(session_name, command_file_path):
 
         # 新しいtmuxセッションを起動し、codexコマンドを実行
         # 注: claudeコマンドの代わりにcodexコマンドを使用
-        codex_command = f'codex --dangerously-skip-permissions "{message}"'
+        # --dangerously-bypass-approvals-and-sandbox: 全承認スキップ、サンドボックスなし実行
+        codex_command = f'codex --dangerously-bypass-approvals-and-sandbox "{message}"'
         subprocess.run(["tmux", "new-session", "-d", "-s", session_name,
                        codex_command], check=True)
         time.sleep(10)  # 起動に時間もかかり差分なしの判定防止
