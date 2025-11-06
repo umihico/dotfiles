@@ -1,4 +1,5 @@
 # shortened commands
+alias ai='claude --dangerously-skip-permissions'
 alias e='echo'
 alias v='cursor'
 alias t='touch'
