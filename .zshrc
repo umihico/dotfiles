@@ -15,6 +15,7 @@ export PATH=$PATH:/opt/homebrew/bin # https://qiita.com/yasukom/items/3f9f7eb98d
 export PAGER=cat # cursor composerでハングしないように
 git config --global core.pager cat # cursor composerでハングしないように
 git config --global push.autoSetupRemote true # https://chatgpt.com/share/680ab918-693c-800f-8f82-7bb5299adba1
+git config --global --unset pager.log 2>/dev/null # git logで全履歴が表示されるのを防ぐ
 
 
 ################################################################################
