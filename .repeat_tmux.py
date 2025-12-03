@@ -5,6 +5,7 @@ import os
 import tempfile
 import difflib
 import argparse
+import random
 
 
 def kill_tmux_session(session_name):
@@ -97,7 +98,9 @@ def get_diff_content(previous_content, current_content):
         return None, 0
 
 
-WAIT_SEC = 5
+# 待機時間を3-5秒のランダムに設定
+def get_random_wait_sec():
+    return random.randint(3, 5)
 
 
 def main():
@@ -116,6 +119,7 @@ def main():
     previous_content = None
     start_time = time.time()
     max_duration = 60000  # 最大実行時間（秒）
+    same_content_count = 0  # 同じ内容が連続した回数をカウント
 
     print(f"tmuxセッション '{args.session_name}' の監視を開始...")
     print(f"{max_duration}秒後に終了します")
@@ -127,18 +131,25 @@ def main():
 
             if current_content is None:
                 print("ペインのキャプチャに失敗しました")
-                time.sleep(WAIT_SEC)
+                wait_sec = get_random_wait_sec()
+                time.sleep(wait_sec)
                 continue
 
             # 前回の内容と比較
             if previous_content is not None and current_content == previous_content:
+                same_content_count += 1
                 print(
-                    f"変更が検出されませんでした {time.strftime('%Y-%m-%d %H:%M:%S')}")
-                # 新しいtmuxセッションを起動
-                kill_tmux_session(args.session_name)
-                start_new_tmux_session(
-                    args.session_name, args.command_file_path)
+                    f"変更が検出されませんでした {time.strftime('%Y-%m-%d %H:%M:%S')} (連続{same_content_count}回目)")
+                
+                # 5回連続で同じ内容ならtmuxセッションを再起動
+                if same_content_count >= 5:
+                    print("\n5回連続で同じ内容が検出されました。tmuxセッションを再起動します...")
+                    same_content_count = 0  # カウントをリセット
+                    kill_tmux_session(args.session_name)
+                    start_new_tmux_session(
+                        args.session_name, args.command_file_path)
             else:
+                same_content_count = 0  # 変更が検出されたらカウントをリセット
                 print(
                     f"変更が検出されました {time.strftime('%Y-%m-%d %H:%M:%S')}")
 
@@ -162,8 +173,9 @@ def main():
                     f"\n最大実行時間 ({max_duration}秒) に達しました。終了します...")
                 break
 
-            # 5秒待機
-            time.sleep(WAIT_SEC)
+            # 3-5秒のランダム待機
+            wait_sec = get_random_wait_sec()
+            time.sleep(wait_sec)
 
         except KeyboardInterrupt:
             print("\nユーザーによって監視が停止されました")
