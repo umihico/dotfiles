@@ -1,5 +1,6 @@
 # shortened commands
 alias ai='claude --dangerously-skip-permissions'
+alias vibe='PORT=54645 npx vibe-kanban@latest'
 alias e='echo'
 alias v='cursor'
 alias t='touch'
